@@ -49,9 +49,49 @@ button{
     cursor: pointer;
 }
 ul li {
+    position: relative;
     list-style: none;
     font-size: 17px;
     padding: 12px 8px 12px 50px;
     user-select: none;
     cursor: pointer;
+}
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    background-color: #fff;
+    border-radius: 50%;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 2px solid #ff5945;
+    transition: all 0.3s ease;
+}
+ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+}
+ul li.checked::before {
+    background-color: #ff5945;
+    /* border: 2px solid #fff; */
+}
+ul li span{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 0;
+    top: 50%;
+    line-height: 40px;
+    color: #555;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    text-align: center;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+ul li span:hover{
+    background-color: #edeef0;
 }
