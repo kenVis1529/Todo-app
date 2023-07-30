@@ -115,12 +115,12 @@ input{
     box-sizing: border-box;
     position: fixed;
     top: 50%;
-    left: 20%;
+    left: 50%;
     transform: translate(-50%, -50%) scale(0);
     z-index: 999;
     width: 400px;
     max-width: 80%;
-    height: 350px;
+    min-height: 100px;
     max-height: 80%;
     background-color: #fff;
     transition: all 0.3s ease-in-out;

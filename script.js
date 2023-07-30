@@ -62,10 +62,6 @@ function showTasks() {
     listContainer.innerHTML = localStorage.getItem("data");
 }
 
-function openBinDialog() {
-    
-}
-
 showTasks();
 
 // Trash bin script
@@ -124,4 +120,32 @@ function closeModal(modal) {
     modal.classList.remove('active');
     overlay.classList.remove('active');
     console.log('Close modal');
+}
+
+// Remove and restore the tasks
+
+listBin.addEventListener('click', function(e) {
+    if (e.target.id == "close-span") {
+        e.target.parentElement.parentElement.remove()
+    } else if (e.target.id == "restore-span") {        
+        restoreTask(e);
+    }
+})
+
+function restoreTask(e) {
+    // Declare li element
+    let li = document.createElement('li');
+    li.innerHTML = e.target.parentElement.parentElement.childNodes[0].textContent;
+    listContainer.appendChild(li);
+    
+    // Create a cross icon
+    let span = document.createElement('span');
+    span.innerHTML = "\u00d7";
+    li.appendChild(span);
+
+    // Add to task list
+    listContainer.appendChild(li);
+
+    // Remove from task bin
+    e.target.parentElement.parentElement.remove();
 }
